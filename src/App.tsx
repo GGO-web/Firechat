@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import "./App.css";
+
+//firebase setup
+import { auth } from "./firebaseSetup";
+
+//hooks
+import { useAuthState } from "react-firebase-hooks/auth";
+
+//components
+import ChatRoom from "./components/ChatRoom/ChatRoom";
+import SignIn from "./components/SignIn/SignIn";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const user = useAuthState(auth);
+
+   return (
+      <div className="App">
+         <header className="App-header"></header>
+
+         <section>{user ? <ChatRoom></ChatRoom> : <SignIn></SignIn>}</section>
+      </div>
+   );
 }
 
 export default App;
