@@ -2,7 +2,7 @@ import React from "react";
 import {
    collection,
    DocumentData,
-   limit,
+   limitToLast,
    orderBy,
    Query,
    query,
@@ -11,15 +11,31 @@ import { firestore } from "../../firebaseSetup";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { DataOptions } from "react-firebase-hooks/firestore/dist/firestore/types";
 
+import ChatMessage from "./components/ChatMessage/ChatMessage";
+
 const ChatRoom = () => {
    const messageRef = collection(firestore, "messages");
-   const q = query(messageRef, orderBy("createdAt"), limit(25));
+   const q = query(messageRef, orderBy("createdAt"), limitToLast(25));
 
-   const [messages] = useCollectionData(
+   const [messages]: any = useCollectionData(
       q as Query<Query<DocumentData>>,
       { idField: "id" } as DataOptions<Query<DocumentData>>
    );
-   return <div>ChatRoom</div>;
+
+   return (
+      <>
+         {messages?.map((msg: any) => {
+            console.log(messages);
+
+            return (
+               <ChatMessage
+                  key={msg.createdAt.seconds}
+                  message={msg}
+               ></ChatMessage>
+            );
+         })}
+      </>
+   );
 };
 
 export default ChatRoom;
