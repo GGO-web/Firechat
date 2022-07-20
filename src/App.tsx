@@ -13,11 +13,11 @@ import ChatRoom from "./components/ChatRoom/ChatRoom";
 import SignIn from "./components/SignIn/SignIn";
 
 function App() {
-   const user = useAuthState(auth);
+   const [authenticated] = useAuthState(auth);
 
    return (
       <div className="app">
-         {user ? <ChatRoom></ChatRoom> : <SignIn></SignIn>}
+         {authenticated ? <ChatRoom></ChatRoom> : <SignIn></SignIn>}
       </div>
    );
 }

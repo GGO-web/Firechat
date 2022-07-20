@@ -5,18 +5,16 @@ import MessageList from "./components/MessageList/MessageList";
 
 const ChatRoom = () => {
    return (
-      <>
+      <div className="container">
          <header className="header">
             <SignOut></SignOut>
          </header>
 
          <section className="chat">
-            <div className="container">
-               <MessageList></MessageList>
-               <MessageForm></MessageForm>
-            </div>
+            <MessageList></MessageList>
+            <MessageForm></MessageForm>
          </section>
-      </>
+      </div>
    );
 };
 
