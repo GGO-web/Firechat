@@ -2,10 +2,13 @@
    display: flex;
    align-items: center;
    gap: 10px;
-   overflow-x: auto;
+   overflow: hidden;
+   direction: rtl;
+   justify-content: flex-end;
 }
 
 .chat-members__item {
+   flex: 0 0 50px;
    width: 50px;
    aspect-ratio: 1 / 1;
    border-radius: 100%;
