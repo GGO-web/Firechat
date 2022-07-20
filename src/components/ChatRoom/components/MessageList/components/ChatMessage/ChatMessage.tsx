@@ -1,5 +1,6 @@
 import React from "react";
-import { auth } from "../../../../firebaseSetup";
+
+import { auth } from "../../../../../../firebaseSetup";
 
 const ChatMessage = (props: any) => {
    const {
@@ -11,9 +12,11 @@ const ChatMessage = (props: any) => {
    const messageClass = uid === auth?.currentUser?.uid ? "sent" : "received";
 
    return (
-      <div className={`message message--${messageClass}`}>
+      <li
+         className={`message-list__message message-list__message--${messageClass}`}
+      >
          ChatMessage: {text}
-      </div>
+      </li>
    );
 };
 

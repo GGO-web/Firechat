@@ -1,0 +1,42 @@
+.message-form {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.message-form__group {
+   position: relative;
+   flex: 1 1 auto;
+}
+
+.message-form__label {
+   pointer-events: none;
+   position: absolute;
+   left: 25px;
+   top: 50%;
+   transform: translate(0, -50%);
+   color: rgba(255, 255, 255, 0.6);
+   opacity: 1;
+   transition: opacity 0.1s, transform 0.1s;
+}
+
+.message-form__label--hidden {
+   opacity: 0;
+   transform: translate(10%, -50%);
+}
+
+.message-form__input {
+   height: auto;
+   resize: none;
+}
+
+.message-form__button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-width: 40px;
+   line-height: 0;
+   background: #373e4e;
+   border-radius: 10px;
+   aspect-ratio: 1 / 1;
+}

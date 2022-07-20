@@ -1,5 +1,5 @@
 import * as firebase from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { collection, getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 export const firebaseConfig = {
@@ -16,3 +16,5 @@ export const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 export const auth = getAuth();
 export const firestore = getFirestore(firebaseApp);
+
+export const messageRef = collection(firestore, 'messages');
