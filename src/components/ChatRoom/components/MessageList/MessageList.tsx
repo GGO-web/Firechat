@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+import "./MessageList.css";
+
 import {
    DocumentData,
    limitToLast,
@@ -13,6 +15,7 @@ import { DataOptions } from "react-firebase-hooks/firestore/dist/firestore/types
 import { messageRef } from "../../../../firebaseSetup";
 
 import ChatMessage from "./components/ChatMessage/ChatMessage";
+import ChatMembers from "./components/ChatMembers/ChatMembers";
 
 const MessageList = () => {
    const dummy = useRef<HTMLSpanElement | null>(null);
@@ -29,18 +32,23 @@ const MessageList = () => {
 
    return (
       <>
+         <ChatMembers
+            membersImages={messages?.map((msg: any): string => msg.photoURL)}
+         ></ChatMembers>
+
          <ul className="message-list list-reset">
             {messages?.map((msg: any) => {
                return (
                   <ChatMessage
-                     key={msg.createdAt.seconds}
+                     key={msg.uid}
                      message={msg}
+                     photoURL={msg.photoURL}
                   ></ChatMessage>
                );
             })}
          </ul>
 
-         <span ref={dummy} className="visually-hidden"></span>
+         <span ref={dummy}></span>
       </>
    );
 };

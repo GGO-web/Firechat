@@ -1,0 +1,21 @@
+.message-list__message {
+   position: relative;
+   justify-self: flex-start;
+   background: #373e4e;
+   border-radius: 20px;
+   padding: 15px 25px;
+}
+
+.message-list__message--sent {
+   justify-self: flex-end;
+}
+
+.message-list__message-avatar {
+   width: 24px;
+   height: 24px;
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   border-radius: 100%;
+   transform: translate(50%, 0);
+}

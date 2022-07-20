@@ -16,14 +16,14 @@ const MessageForm = () => {
    const messageSubmitHandler = async (e: FormEvent) => {
       e.preventDefault();
 
-      // const { uid, photoURL }: any = auth.currentUser;
+      const { uid, photoURL }: any = auth.currentUser;
 
-      // await addDoc(messageRef, {
-      //    text: inputValue,
-      //    createdAt: serverTimestamp(),
-      //    uid,
-      //    photoURL,
-      // });
+      await addDoc(messageRef, {
+         text: inputValue,
+         createdAt: serverTimestamp(),
+         uid,
+         photoURL,
+      });
 
       setInputValue("");
    };

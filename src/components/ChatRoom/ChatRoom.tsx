@@ -1,20 +1,19 @@
-import React from "react";
-import SignOut from "../SignOut/SignOut";
+import "./ChatRoom.css";
+
+import Header from "../Header/Header";
 import MessageForm from "./components/MessageForm/MessageForm";
 import MessageList from "./components/MessageList/MessageList";
 
 const ChatRoom = () => {
    return (
-      <div className="container">
-         <header className="header">
-            <SignOut></SignOut>
-         </header>
+      <>
+         <Header></Header>
 
-         <section className="chat">
+         <section className="chat container">
             <MessageList></MessageList>
             <MessageForm></MessageForm>
          </section>
-      </div>
+      </>
    );
 };
 

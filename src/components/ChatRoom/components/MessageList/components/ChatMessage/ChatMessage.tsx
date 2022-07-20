@@ -1,4 +1,4 @@
-import React from "react";
+import "./ChatMessage.css";
 
 import { auth } from "../../../../../../firebaseSetup";
 
@@ -15,7 +15,16 @@ const ChatMessage = (props: any) => {
       <li
          className={`message-list__message message-list__message--${messageClass}`}
       >
-         ChatMessage: {text}
+         {text}
+         {messageClass === "received" && photoURL ? (
+            <img
+               className="message-list__message-avatar"
+               src={photoURL}
+               alt=""
+            />
+         ) : (
+            ""
+         )}
       </li>
    );
 };
