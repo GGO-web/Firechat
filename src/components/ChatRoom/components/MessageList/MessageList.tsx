@@ -13,6 +13,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import { DataOptions } from "react-firebase-hooks/firestore/dist/firestore/types";
 
 import { messageRef } from "../../../../firebaseSetup";
+import { v4 as uuidv4 } from "uuid";
 
 import ChatMessage from "./components/ChatMessage/ChatMessage";
 import ChatMembers from "./components/ChatMembers/ChatMembers";
@@ -40,7 +41,7 @@ const MessageList = () => {
             {messages?.map((msg: any) => {
                return (
                   <ChatMessage
-                     key={msg.uid}
+                     key={uuidv4()}
                      message={msg}
                      photoURL={msg.photoURL}
                   ></ChatMessage>
