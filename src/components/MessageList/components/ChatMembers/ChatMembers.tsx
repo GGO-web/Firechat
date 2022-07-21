@@ -1,11 +1,19 @@
 import { auth } from "../../../../firebaseSetup";
-import { filterUnique } from "../../../../utils/filterUnique";
+
 import "./ChatMembers.css";
+
+const filterUnique = (array: (string | null | undefined)[]): string[] => {
+   const unique = Array.from(new Set(array));
+
+   return unique.filter((item) => {
+      return typeof item === "string" && item.length > 0;
+   }) as string[];
+};
 
 const ChatMembers = ({
    membersImages,
 }: {
-   membersImages: string[] | undefined;
+   membersImages: (string | null | undefined)[];
 }) => {
    const isCurrentUser = (avatarURL: string) => {
       return auth.currentUser?.photoURL === avatarURL;
@@ -27,7 +35,7 @@ const ChatMembers = ({
                      <img
                         className="chat-members__item-img"
                         src={avatarURL}
-                        alt=""
+                        alt={avatarURL}
                      />
                   </div>
                );
