@@ -7,7 +7,7 @@ it("should render Message List", () => {
    jest
       .spyOn(firebaseHooks, "useCollectionData")
       .mockReturnValue([
-         [{ text: "test message", createdAt: new Date() }],
+         [{ text: "test message", createdAt: new Date(), uid: "test uid" }],
          true,
          undefined,
          undefined,
