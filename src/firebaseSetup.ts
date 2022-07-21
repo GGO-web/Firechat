@@ -14,7 +14,7 @@ export const firebaseConfig = {
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-export const auth = getAuth();
+export const auth = getAuth(firebaseApp);
 export const firestore = getFirestore(firebaseApp);
 
 export const messageRef = collection(firestore, 'messages');
