@@ -34,7 +34,9 @@ const MessageList = () => {
    return (
       <>
          <ChatMembers
-            membersImages={messages?.map((msg: any): string => msg.photoURL)}
+            membersImages={
+               messages?.map((msg: any): string => msg.photoURL) as string[]
+            }
          ></ChatMembers>
 
          <ul className="message-list list-reset">
