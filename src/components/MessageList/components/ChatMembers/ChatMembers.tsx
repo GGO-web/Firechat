@@ -1,5 +1,5 @@
-import { auth } from "../../../../../../firebaseSetup";
-import { filterUnique } from "../../../../../../utils/filterUnique";
+import { auth } from "../../../../firebaseSetup";
+import { filterUnique } from "../../../../utils/filterUnique";
 import "./ChatMembers.css";
 
 const ChatMembers = ({

@@ -1,6 +1,6 @@
 import "./ChatMessage.css";
 
-import { auth } from "../../../../../../firebaseSetup";
+import { auth } from "../../../../firebaseSetup";
 
 const ChatMessage = (props: any) => {
    const {

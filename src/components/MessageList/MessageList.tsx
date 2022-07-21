@@ -12,7 +12,7 @@ import {
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { DataOptions } from "react-firebase-hooks/firestore/dist/firestore/types";
 
-import { messageRef } from "../../../../firebaseSetup";
+import { messageRef } from "../../firebaseSetup";
 import { v4 as uuidv4 } from "uuid";
 
 import ChatMessage from "./components/ChatMessage/ChatMessage";

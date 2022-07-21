@@ -1,6 +1,6 @@
 import { addDoc, serverTimestamp } from "firebase/firestore";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { auth, messageRef } from "../../../../firebaseSetup";
+import { auth, messageRef } from "../../firebaseSetup";
 
 import "./MessageForm.css";
 

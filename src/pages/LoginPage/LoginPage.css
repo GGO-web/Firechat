@@ -1,0 +1,13 @@
+.login {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+   padding-top: 30px;
+   padding-bottom: 30px;
+}
+
+.login__group-title {
+   font-weight: 700;
+}

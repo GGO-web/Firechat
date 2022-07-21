@@ -9,15 +9,15 @@ import { auth } from "./firebaseSetup";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 //components
-import ChatRoom from "./components/ChatRoom/ChatRoom";
-import SignIn from "./components/SignIn/SignIn";
+import ChatRoom from "./pages/ChatRoom/ChatRoom";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
    const [authenticated] = useAuthState(auth);
 
    return (
       <div className="app">
-         {authenticated ? <ChatRoom></ChatRoom> : <SignIn></SignIn>}
+         {authenticated ? <ChatRoom></ChatRoom> : <LoginPage></LoginPage>}
       </div>
    );
 }
