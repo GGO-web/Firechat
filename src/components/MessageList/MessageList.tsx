@@ -28,7 +28,7 @@ const MessageList = () => {
    );
 
    useEffect(() => {
-      // if (dummy.current) dummy.current?.scrollIntoView({ behavior: "smooth" });
+      dummy.current?.scrollIntoView({ behavior: "smooth" });
    }, [messages]);
 
    return (

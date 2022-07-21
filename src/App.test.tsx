@@ -5,12 +5,6 @@ import App from "./App";
 
 // mocks
 import { useAuthState } from "./__mocks__/react-firebase-hooks/auth";
-import { useCollectionData } from "./__mocks__/react-firebase-hooks/useCollectionData";
-
-jest.mock("firebase/auth", () => ({
-   ...jest.requireActual("firebase/auth"),
-   getAuth: jest.fn().mockReturnValue([{ currentUser: {} }]),
-}));
 
 let authenticated = false;
 
@@ -25,9 +19,6 @@ it("should render app with SignIn page if is not authenticated", () => {
 it("should render app with ChatRoom page if is auth", () => {
    authenticated = true;
    useAuthState.mockReturnValue([authenticated]);
-   useCollectionData.mockReturnValue([
-      { text: "test message", createdAt: new Date() },
-   ]);
 
    render(<App />);
 
