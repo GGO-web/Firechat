@@ -28,13 +28,15 @@ const MessageList = () => {
    );
 
    useEffect(() => {
-      // if (dummy.current) dummy.current?.scrollIntoView({ behavior: "smooth" });
+      dummy.current?.scrollIntoView({ behavior: "smooth" });
    }, [messages]);
 
    return (
       <>
          <ChatMembers
-            membersImages={messages?.map((msg: any): string => msg.photoURL)}
+            membersImages={
+               messages?.map((msg: any): string => msg.photoURL) as string[]
+            }
          ></ChatMembers>
 
          <ul className="message-list list-reset">

@@ -52,6 +52,7 @@ const MessageForm = () => {
          <button
             type="submit"
             onClick={messageSubmitHandler}
+            data-testid="message-form__button"
             className="message-form__button btn-reset"
          >
             <img
