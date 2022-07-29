@@ -1,6 +1,7 @@
 import { addDoc, serverTimestamp } from "firebase/firestore";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { auth, messageRef } from "../../firebaseSetup";
+import { isValidMessage } from "../../utils/isValidMessage";
 
 import "./MessageForm.css";
 
@@ -18,14 +19,18 @@ const MessageForm = () => {
 
       const { uid, photoURL }: any = auth.currentUser;
 
-      await addDoc(messageRef, {
-         text: inputValue,
-         createdAt: serverTimestamp(),
-         uid,
-         photoURL,
-      });
+      if (isValidMessage(inputValue)) {
+         await addDoc(messageRef, {
+            text: inputValue,
+            createdAt: serverTimestamp(),
+            uid,
+            photoURL,
+         });
 
-      setInputValue("");
+         setInputValue("");
+      } else {
+         setInputValue(inputValue.trim());
+      }
    };
 
    return (
@@ -54,6 +59,11 @@ const MessageForm = () => {
             onClick={messageSubmitHandler}
             data-testid="message-form__button"
             className="message-form__button btn-reset"
+            style={
+               !isValidMessage(inputValue)
+                  ? { pointerEvents: "none", opacity: "0.3" }
+                  : undefined
+            }
          >
             <img
                className="message-form__icon"
